@@ -1,6 +1,13 @@
+var pixelCanvas = $("#pixelCanvas");
+
 // Select color input
 var colorInput = $("#colorPicker");
 console.log(colorInput.val());
+
+colorInput.change(function() {
+  console.log("Color changed to " + colorInput.val());
+  pixelCanvas.css("background-color", colorInput.val());
+});
 
 // Select size input
 var height = $("#inputHeight");
@@ -12,23 +19,23 @@ console.log(height.val(), width.val());
 function makeGrid() {
   var rows = width.val();
   var columns = height.val();
-  var pixelCanvas = $('#pixelCanvas');
+
   pixelCanvas.empty();
+  pixelCanvas.css("background-color", colorInput.val());
   console.log("Making a " + width.val() + "x" + height.val() + " grid.");
 
   for (var i = 1; i <= rows; i++) {
-	console.log("Making row " + i);
-	var rowId = "row" + i;
-	var rowIDAttr = "id='" + rowId + "'";
-	var tr = $('<tr ' + rowIDAttr + '></tr>');
-	pixelCanvas.append(tr);
+    console.log("Making row " + i);
+    var rowId = "row" + i;
+    var rowIDAttr = "id='" + rowId + "'";
+    var tr = $("<tr " + rowIDAttr + "></tr>");
+    pixelCanvas.append(tr);
     for (var j = 1; j <= columns; j++) {
-	  console.log("Making column " + j);
-	  var colID = "col"+j;
-	  var colIDAttr = "id='" + colID + "'";
-	  var bgcolorAttr = "style=background-color:" + colorInput.val() + ";";
-	  var td = $('<td ' + colIDAttr + ' ' + bgcolorAttr +'></td>');
-	  $('#'+rowId).append(td);
+      console.log("Making column " + j);
+      var colID = "col" + j;
+      var colIDAttr = "id='" + colID + "'";
+      var td = $("<td " + colIDAttr + "></td>");
+      $("#" + rowId).append(td);
     }
   }
 }
