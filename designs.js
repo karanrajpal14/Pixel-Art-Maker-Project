@@ -9,6 +9,15 @@ colorInput.change(function() {
   pixelCanvas.css("background-color", colorInput.val());
 });
 
+$("#pixelCanvas").on("click", "td", function() {
+  var clickedElement = $(this)[0];
+  var columnID = '#' + clickedElement.id;
+  var rowID = '#' + clickedElement.parentElement.id;
+  console.log(columnID);
+  console.log(rowID);
+  console.log($(rowID).find(columnID).css('background-color', colorInput.val()));
+});
+
 // Select size input
 var height = $("#inputHeight");
 var width = $("#inputWeight");
@@ -21,7 +30,6 @@ function makeGrid() {
   var columns = height.val();
 
   pixelCanvas.empty();
-  pixelCanvas.css("background-color", colorInput.val());
   console.log("Making a " + width.val() + "x" + height.val() + " grid.");
 
   for (var i = 1; i <= rows; i++) {
