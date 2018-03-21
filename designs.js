@@ -4,18 +4,15 @@ var pixelCanvas = $("#pixelCanvas");
 var colorInput = $("#colorPicker");
 console.log(colorInput.val());
 
-colorInput.change(function() {
-  console.log("Color changed to " + colorInput.val());
-  pixelCanvas.css("background-color", colorInput.val());
-});
 
 $("#pixelCanvas").on("click", "td", function() {
   var clickedElement = $(this)[0];
-  var columnID = '#' + clickedElement.id;
-  var rowID = '#' + clickedElement.parentElement.id;
+  var columnID = "#" + clickedElement.id;
+  var rowID = "#" + clickedElement.parentElement.id;
   console.log(columnID);
   console.log(rowID);
-  console.log($(rowID).find(columnID).css('background-color', colorInput.val()));
+  var element = $(rowID).find(columnID);
+  console.log(element.css("background-color", colorInput.val()));
 });
 
 // Select size input
