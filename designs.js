@@ -13,6 +13,7 @@ function makeGrid() {
   var rows = width.val();
   var columns = height.val();
   var pixelCanvas = $('#pixelCanvas');
+  pixelCanvas.empty();
   console.log("Making a " + width.val() + "x" + height.val() + " grid.");
 
   for (var i = 1; i <= rows; i++) {
