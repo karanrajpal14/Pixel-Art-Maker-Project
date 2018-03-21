@@ -32,7 +32,8 @@ tr {
 }
 
 td {
-    width: 20px;
+	width: 20px;
+	border: 2px solid white;
 }
 
 input[type=number] {
