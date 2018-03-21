@@ -1,42 +1,38 @@
 var pixelCanvas = $("#pixelCanvas");
 
-// Select color input
-var colorInput = $("#colorPicker");
-console.log(colorInput.val());
+// Event Listener to get the clicked cell and color it
+pixelCanvas.on("click", "td", function() {
+  // Select color input value
+  var pickedColor = $("#colorPicker").val();
 
-
-$("#pixelCanvas").on("click", "td", function() {
+  // Get clicked element and their respective ids
   var clickedElement = $(this)[0];
   var columnID = "#" + clickedElement.id;
   var rowID = "#" + clickedElement.parentElement.id;
-  console.log(columnID);
-  console.log(rowID);
   var element = $(rowID).find(columnID);
-  console.log(element.css("background-color", colorInput.val()));
+
+  // Color clicked cell
+  element.css("background-color", pickedColor);
 });
 
-// Select size input
-var height = $("#inputHeight");
-var width = $("#inputWeight");
-console.log(height.val(), width.val());
-
-// When size is submitted by the user, call makeGrid()
-
+// Function to create the cell grid
 function makeGrid() {
-  var rows = width.val();
-  var columns = height.val();
+  // Fetching rows and columns from input
+  var totalColumns = $("#inputHeight").val();
+  var totalRows = $("#inputWeight").val();
 
+  // Clearing the canvas
   pixelCanvas.empty();
-  console.log("Making a " + width.val() + "x" + height.val() + " grid.");
 
-  for (var i = 1; i <= rows; i++) {
-    console.log("Making row " + i);
+  // Generating grid rows and appending to table in DOM
+  for (var i = 1; i <= totalRows; i++) {
     var rowId = "row" + i;
     var rowIDAttr = "id='" + rowId + "'";
     var tr = $("<tr " + rowIDAttr + "></tr>");
     pixelCanvas.append(tr);
-    for (var j = 1; j <= columns; j++) {
-      console.log("Making column " + j);
+
+    // Generating columns and appending to row in DOM
+    for (var j = 1; j <= totalColumns; j++) {
       var colID = "col" + j;
       var colIDAttr = "id='" + colID + "'";
       var td = $("<td " + colIDAttr + "></td>");
