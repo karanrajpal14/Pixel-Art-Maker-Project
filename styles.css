@@ -1,40 +1,43 @@
 body {
-    text-align: center;
+  text-align: center;
 }
 
+/* Pixel Art Maker Header */
 h1 {
-    font-family: Monoton;
-    font-size: 70px;
-    margin: 0.2em;
+  font: 5em Monoton;
+  margin: 0.2em;
 }
 
+/* Styling for grid size header */
 h2 {
-    margin: 1em 0 0.25em;
+  margin: 1em 0 0.25em;
 }
 
 h2:first-of-type {
-    margin-top: 0.5em;
+  margin-top: 0.5em;
 }
 
+/* Cell borders */
 table,
 tr,
 td {
-    border: 1px solid black;
+  border: 1px solid #000;
 }
 
 table {
-    border-collapse: collapse;
-    margin: 0 auto;
+  border-collapse: collapse;
+  margin: 0 auto;
 }
 
+/* Cell size */
 tr {
-    height: 20px;
+  height: 1.5em;
 }
 
 td {
-    width: 20px;
+  width: 1.5em;
 }
 
-input[type=number] {
-    width: 6em;
+input[type="number"] {
+  width: 6em;
 }
