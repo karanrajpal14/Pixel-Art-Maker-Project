@@ -2,9 +2,14 @@
 <html>
 
 <head>
-	<title>Pixel Art Maker!</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
 	<link rel="stylesheet" href="styles.css">
+
+	<title>Pixel Art Maker!</title>
 </head>
 
 <body>
@@ -14,8 +19,9 @@
 	<!-- Grid size input -->
 	<h2>Choose Grid Size</h2>
 	<form id="sizePicker" action="javascript:makeGrid();">
-		Grid Height:
-		<input type="number" id="inputHeight" name="height" min="1" value="1"> Grid Width:
+		<label for="inputHeight">Columns:</label>
+		<input type="number" id="inputHeight" name="height" min="1" value="1">
+		<label for="inputWeight">Rows:</label>
 		<input type="number" id="inputWeight" name="width" min="1" value="1">
 		<input type="submit">
 	</form>
